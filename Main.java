@@ -14,7 +14,7 @@ public class Main {
         if(selection == 1 || selection == 2){
             if(selection == 1){
                 getStarted();
-            }else{
+            }else if(selection == 2){
                 rules();
             }
         }else{
@@ -22,7 +22,22 @@ public class Main {
         }
     }
 
-    public static void rules(){}
+    public static void rules(){
+        System.out.println("Rules \n1. You roll only one dice. \n2. If you roll a one you lose all your points for that round. \n3. First to 100 points wins. Player vs Computer");
+        System.out.println("Back [1] Exit [2]");
+        Scanner kb = new Scanner(System.in);
+        int selection = kb.nextInt();
+        if(selection == 1 || selection == 2){
+            if(selection == 1){
+                welcome();
+            }
+        }else{
+            rules();
+        }
+    }
 
-    public static void getStarted(){}
+    public static void getStarted(){
+        DiceRoller dr = new DiceRoller();
+        dr.rollDice();
+    }
 }
