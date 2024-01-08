@@ -6,6 +6,9 @@ public class DiceRoller {
     int total = 0; 
     List<Integer> scoresP = new ArrayList<Integer>();
     List<Integer> scoresC = new ArrayList<Integer>();
+
+    
+
     public void rollDice(){
     
         double ddice = Math.random() * 7;
@@ -19,8 +22,7 @@ public class DiceRoller {
 
         if(dice == 1){
             System.out.println("You lose all your points for this round.");
-            total = 0;
-            System.out.println("Your total is " + total);
+            compDice();
 
         }else{
             total += dice; 
@@ -34,20 +36,54 @@ public class DiceRoller {
                 scoresP.add(total);
                 total = 0;
                 results();
+                compDice();
             }
         }
     
     }
 
+
+    public void compDice(){
+                // DICE
+                double ddice = Math.random() * 7;
+                int dice = (int) ddice;
+
+
+                if(dice == 0){
+
+                }
+
+                if(dice == 1){
+                     System.out.println("Computer has lost all points for this round.");
+                     total = 0;
+                }else{
+                    total += dice; 
+                    System.out.println("Computer rolled a " + dice);
+                    if(total < 6){
+                        System.out.println("Computer has chosen to continue...");
+                        compDice();
+                    }else{
+                        scoresC.add(total);
+                        System.out.println("Computer has stopped rolling.");
+                        results();
+                        total = 0;
+                    }
+                }
+    }
+
     public void results(){
-        System.out.println("Player scores are: ");
+        int csum = 0;
+        int psum = 0;
         for(int i = 0; i < scoresP.size(); i++){
-            System.out.println(scoresP.get(i));
+            psum += scoresP.get(i);
         }
-        System.out.println("Computer scores are: ");
+
         for(int i = 0; i < scoresC.size(); i++){
-            System.out.println(scoresC.get(i));
+           csum += scoresC.get(i);
         }
+
+        System.out.println("Player score is " + psum);
+        System.out.println("Computer score is " + csum);
     }
 
 }
