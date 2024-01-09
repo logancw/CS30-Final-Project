@@ -9,7 +9,7 @@ First person to 100 Wins.
 # TODO
  
 [x] Welcome Screen
-[] Random Dice Roller (PLAYER)
-[] Random Dice Roller (COMPUTER)
+[x] Random Dice Roller (PLAYER)
+[x] Random Dice Roller (COMPUTER)
 [] Running Tally 
 [] Who Wins
