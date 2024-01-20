@@ -1,3 +1,11 @@
+//                                  CS30 Final Project 
+//                                          PIG
+//                                  By:  Logan Weisgerber
+//                                  Date:  1/20/2024
+
+
+
+
 import java.util.Scanner;
 
 public class Main {
