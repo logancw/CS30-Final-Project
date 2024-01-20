@@ -34,7 +34,6 @@ public class DiceRoller {
             } else {
                 scoresP.add(total);
                 total = 0;
-                results();
                 compDice();
             }
         }
@@ -50,43 +49,29 @@ public class DiceRoller {
             dice = 1;
         }
 
-        if (dice == 1) {
+        if(dice == 1){
             total = 0;
-            try {
-                System.out.println("Computer has rolled a 1");
-                System.out.println("Computer has lost all points for this round...");
-                Thread.sleep(2000);
-                results();
-            } catch (InterruptedException e) {
-                System.out.println("Error");
-            }
-        } else {
+            System.out.println("Computer lost all points for this round.");
+            results();
+        }else{
             total += dice;
             System.out.println("Computer rolled a " + dice);
-            if (total < 6) {
-                System.out.println("Computer has chosen to continue...");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    System.out.println("Error");
-                }
+            if(total < 6){
                 compDice();
-            } else {
+            }else{
+                System.out.println("Computer's total is " + total);
                 scoresC.add(total);
-                System.out.println("Computer has stopped rolling.");
-                try {
-                    Thread.sleep(2000);
-                    results();
-                } catch (InterruptedException e) {
-                    System.out.println("Error");
-                }
-                results();
                 total = 0;
+                results();
             }
         }
+        
     }
 
     public void results() {
+
+        // scoresP.add(100);
+
         int csum = 0;
         int psum = 0;
         for (int i = 0; i < scoresP.size(); i++) {
@@ -118,6 +103,22 @@ public class DiceRoller {
             System.out.println("Error");
         }
 
+    }
+
+
+    public void playAgain(){
+        System.out.println("Would you like to play again? [1] Yes [2] No");
+        Scanner kb = new Scanner(System.in);
+        int selection = kb.nextInt();
+        if(selection == 1){
+            round = 1;
+            total = 0;
+            scoresP.clear();
+            scoresC.clear();
+            rollDice();
+        }else{
+            System.out.println("Thanks for playing!");
+        }
     }
 
 }
