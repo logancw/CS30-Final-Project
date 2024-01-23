@@ -13,3 +13,7 @@ Logan, 1/9/2024
  - + Added a fix to if a 0 is rolled change to a one
  - + Added a wait time between computer messages 
  - + Added a round system 
+
+Logan, 1/23/2024
+ - + Added a PlayAgain feature
+ - + Added Comments
